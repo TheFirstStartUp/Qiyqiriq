@@ -1,7 +1,7 @@
 ﻿using eShop.Domain.Base;
 using eShop.Domain.Localizations;
 
-namespace eShop.Domain.Enitities
+namespace eShop.Domain.Enitities.Products
 {
     public class Category : BaseEntity<int>, ILocalizedName
     {

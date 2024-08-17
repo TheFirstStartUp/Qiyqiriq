@@ -1,7 +1,7 @@
 ﻿using eShop.Domain.Base;
 using eShop.Domain.Enums;
 
-namespace eShop.Domain.Enitities
+namespace eShop.Domain.Enitities.Products
 {
     public class Price : AuditableEntity<int>
     {

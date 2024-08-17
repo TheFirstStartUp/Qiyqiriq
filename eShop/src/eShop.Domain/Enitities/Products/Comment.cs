@@ -1,6 +1,6 @@
 ﻿using eShop.Domain.Base;
 
-namespace eShop.Domain.Enitities
+namespace eShop.Domain.Enitities.Products
 {
     public class Comment : BaseEntity<int>
     {

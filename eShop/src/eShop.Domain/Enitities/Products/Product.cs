@@ -2,7 +2,7 @@
 using eShop.Domain.Enums;
 using eShop.Domain.Localizations;
 
-namespace eShop.Domain.Enitities
+namespace eShop.Domain.Enitities.Products
 {
     public class Product : AuditableEntity<int>, ILocalizedName, ILocalizedDescription
     {
