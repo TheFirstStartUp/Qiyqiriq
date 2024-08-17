@@ -1,4 +1,5 @@
 ﻿using eShop.Domain.Base;
+using eShop.Domain.Enitities.Regions;
 using eShop.Domain.Enums;
 using eShop.Domain.Localizations;
 

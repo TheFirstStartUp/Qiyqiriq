@@ -1,8 +1,9 @@
 ﻿using eShop.Domain.Base;
 using eShop.Domain.Enitities.Organizations;
+using eShop.Domain.Enitities.Regions;
 using eShop.Domain.Enums;
 
-namespace eShop.Domain.Enitities
+namespace eShop.Domain.Enitities.Orders
 {
     public class Order : AuditableEntity<int>
     {

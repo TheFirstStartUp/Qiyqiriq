@@ -2,7 +2,7 @@
 using eShop.Domain.Enums;
 using eShop.Domain.Localizations;
 
-namespace eShop.Domain.Enitities
+namespace eShop.Domain.Enitities.Regions
 {
     public class Region : AuditableEntity<int>, ILocalizedName
     {
