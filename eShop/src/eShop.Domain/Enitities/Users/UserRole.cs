@@ -8,5 +8,7 @@ namespace eShop.Domain.Enitities.Users
         public string NameUz { get; set; }
         public string NameRu { get; set; }
         public string NameEn { get; set; }
+
+        public virtual ICollection<UserPermission> Permissions { get; set; }
     }
 }

@@ -1,6 +1,8 @@
-﻿namespace eShop.Domain.Enitities.Organizations
+﻿using eShop.Domain.Base;
+
+namespace eShop.Domain.Enitities.Organizations
 {
-    public class OrganizationFile
+    public class OrganizationFile : BaseEntity<int>
     {
         public string FileName { get; set; }
         public string FileType { get; set; }           // Fayl turi (masalan, "image/jpeg", "application/pdf")

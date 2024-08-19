@@ -13,9 +13,7 @@ namespace eShop.Infrastructure.Context
     {
         public eShopDbContext(DbContextOptions<eShopDbContext> options)
             : base(options)
-        {
-            Database.Migrate();
-        }
+            => Database.Migrate();
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Price> Prices { get; set; }
@@ -40,5 +38,15 @@ namespace eShop.Infrastructure.Context
         public DbSet<UserRolePermission> UsersRolesPermissions { get; set; }
 
         public DbSet<Region> Regions { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<UserRole>()
+                .HasMany(x => x.Permissions)
+                .WithMany(x => x.Roles)
+                .UsingEntity<UserRolePermission>();
+        }
     }
 }
