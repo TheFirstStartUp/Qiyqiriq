@@ -1,4 +1,5 @@
 ﻿using eShop.Domain.Enitities.Baskets;
+using eShop.Infrastructure.Context;
 using eShop.Infrastructure.Repositories.Base;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,7 +12,7 @@ namespace eShop.Infrastructure.Repositories.Baskets.Baskets
 {
     public class BasketRepository : BaseRepository<Basket>, IBasketRepository
     {
-        public BasketRepository(DbContext context) : base(context)
+        public BasketRepository(eShopDbContext context) : base(context)
         {
         }
     }

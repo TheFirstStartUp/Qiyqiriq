@@ -1,4 +1,5 @@
 ﻿using eShop.Domain.Enitities.Products;
+using eShop.Infrastructure.Context;
 using eShop.Infrastructure.Repositories.Base;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,7 +12,7 @@ namespace eShop.Infrastructure.Repositories.Products.ProductFiles
 {
     public class ProductFilesRepository : BaseRepository<ProductFile>, IProductFilesRepository
     {
-        public ProductFilesRepository(DbContext context) : base(context)
+        public ProductFilesRepository(eShopDbContext context) : base(context)
         {
         }
     }

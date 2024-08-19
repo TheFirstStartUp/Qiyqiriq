@@ -1,4 +1,5 @@
 ﻿using eShop.Domain.Enitities.Users;
+using eShop.Infrastructure.Context;
 using eShop.Infrastructure.Repositories.Base;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,7 +12,7 @@ namespace eShop.Infrastructure.Repositories.Users.UserRoles
 {
     public class UserRoleRepository : BaseRepository<UserRole>, IUserRoleRepository
     {
-        public UserRoleRepository(DbContext context) : base(context)
+        public UserRoleRepository(eShopDbContext context) : base(context)
         {
         }
     }

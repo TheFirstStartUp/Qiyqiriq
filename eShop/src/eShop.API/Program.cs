@@ -20,7 +20,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseExceptionHandler();
+app.UseGlobalExceptionHandler();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.UseAuthentication();

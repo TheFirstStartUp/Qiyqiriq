@@ -10,14 +10,15 @@ namespace eShop.Infrastructure.Extensions
         {
              var repositoryTypes = Assembly.GetExecutingAssembly().GetTypes()
                 .Where(t => t.IsClass
+                        && !t.IsGenericType
                         && !t.IsAbstract
                         && t.GetInterfaces().Any(i => i.IsGenericType 
                                                    && i.GetGenericTypeDefinition() == typeof(IBaseRepository<>)));
 
             foreach (var implementation in repositoryTypes)
             {
-                var interfaceType = implementation.GetInterfaces().First(i => i.IsGenericType 
-                                                                           && i.GetGenericTypeDefinition() == typeof(IBaseRepository<>));
+                var interfaceType = implementation.GetInterfaces().First(i => i.IsGenericType
+                                                                            && i.GetGenericTypeDefinition() == typeof(IBaseRepository<>));
                 services.AddScoped(interfaceType, implementation);
             }
 

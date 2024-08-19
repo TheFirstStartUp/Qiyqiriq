@@ -1,4 +1,5 @@
 ﻿using eShop.Domain.Exceptions;
+using eShop.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
@@ -6,10 +7,10 @@ namespace eShop.Infrastructure.Repositories.Base
 {
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
     {
-        private readonly DbContext Context;
+        private readonly eShopDbContext Context;
         private readonly DbSet<TEntity> _dbSet;
 
-        public BaseRepository(DbContext context)
+        public BaseRepository(eShopDbContext context)
         {
             Context = context;
             _dbSet = Context.Set<TEntity>();
@@ -22,7 +23,6 @@ namespace eShop.Infrastructure.Repositories.Base
 
             return entry.Entity;
         }
-
 
         public async Task<List<TEntity>> Filter(Expression<Func<TEntity, bool>> filter)
             => await _dbSet.Where(filter).ToListAsync();
