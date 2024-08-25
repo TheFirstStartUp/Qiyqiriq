@@ -10,9 +10,9 @@ namespace eShop.Domain.Enitities.Products
         public string NameRu { get; set; }
         public string NameEn { get; set; }
 
-        public int ParentId { get; set; }
-        public virtual Category Parent { get; set; }
+        public int? ParentId { get; set; }
+        public Category Parent { get; set; }
 
-        public virtual ICollection<Category> Childrens { get; set; }
+        public ICollection<Category> Childrens { get; set; }
     }
 }
