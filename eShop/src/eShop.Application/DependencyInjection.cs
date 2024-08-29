@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using eShop.Application.Services.Categories;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace eShop.Application
 {
@@ -7,6 +8,8 @@ namespace eShop.Application
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             services.AddHttpContextAccessor();
+
+            services.AddScoped<ICategoryService, CategoryService>();
 
             return services;
         }
