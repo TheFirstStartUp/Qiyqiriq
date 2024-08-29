@@ -6,6 +6,7 @@ using eShop.Domain.Enitities.Products;
 using eShop.Domain.Enitities.Regions;
 using eShop.Domain.Enitities.Users;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace eShop.Infrastructure.Context
 {
@@ -42,6 +43,8 @@ namespace eShop.Infrastructure.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.ApplyConfigurationsFromAssembly(assembly: Assembly.GetExecutingAssembly());
 
             modelBuilder.Entity<UserRole>()
                 .HasMany(x => x.Permissions)

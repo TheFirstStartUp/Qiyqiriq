@@ -18,8 +18,4 @@
     <ProjectReference Include="..\eShop.Domain\eShop.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Configurations\" />
-  </ItemGroup>
-
 </Project>

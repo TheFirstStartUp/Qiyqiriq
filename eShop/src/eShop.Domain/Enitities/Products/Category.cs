@@ -13,6 +13,6 @@ namespace eShop.Domain.Enitities.Products
         public int? ParentId { get; set; }
         public Category Parent { get; set; }
 
-        public ICollection<Category> Childrens { get; set; }
+        public ICollection<Category> Children { get; set; } = new List<Category>();
     }
 }

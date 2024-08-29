@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using eShop.Infrastructure.Context;
@@ -12,9 +13,11 @@ using eShop.Infrastructure.Context;
 namespace eShop.Infrastructure.Migrations
 {
     [DbContext(typeof(eShopDbContext))]
-    partial class eShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240829190313_Category-parent-children-relation")]
+    partial class Categoryparentchildrenrelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -805,7 +808,7 @@ namespace eShop.Infrastructure.Migrations
             modelBuilder.Entity("eShop.Domain.Enitities.Products.Category", b =>
                 {
                     b.HasOne("eShop.Domain.Enitities.Products.Category", "Parent")
-                        .WithMany("Children")
+                        .WithMany("Childrens")
                         .HasForeignKey("ParentId")
                         .OnDelete(DeleteBehavior.SetNull);
 
@@ -933,7 +936,7 @@ namespace eShop.Infrastructure.Migrations
 
             modelBuilder.Entity("eShop.Domain.Enitities.Products.Category", b =>
                 {
-                    b.Navigation("Children");
+                    b.Navigation("Childrens");
                 });
 
             modelBuilder.Entity("eShop.Domain.Enitities.Products.Product", b =>
