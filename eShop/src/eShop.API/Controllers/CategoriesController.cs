@@ -14,12 +14,6 @@ namespace eShop.API.Controllers
         public CategoriesController(ICategoryService categoryService) 
             => _categoryService = categoryService;
 
-        [HttpPost]
-        public async Task<IActionResult> CreateAsync(CategoryCreationDTO categoryCreationDTO)
-        {
-            return Ok(await _categoryService.AddCategoryAsync(categoryCreationDTO));
-        }
-   
         [HttpGet]
         public async Task<IActionResult> GetAllAsync()
         {
@@ -32,21 +26,10 @@ namespace eShop.API.Controllers
             return Ok(await _categoryService.GetByIdCategoryAsync(id));
         }
 
-         [HttpGet("{id}/childs")]
+        [HttpGet("{id}/childs")]
         public async Task<IActionResult> GetChildsByIdAsync(int id)
         {
             return Ok(await _categoryService.GetCategiesByParentIdCategoryAsync(id));
-        }
-
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateAsync(int id, CategoryModificationDTO categoryModificationDTO){
-            return Ok(await _categoryService.UpdateCategoryAsync(id, categoryModificationDTO));
-        }
-
-        [HttpDelete("id")]
-        public async Task<IActionResult> DeleteAsync(int id)
-        {
-            return Ok(await _categoryService.DeleteCategoryAsync(id));
         }
     }
 }
