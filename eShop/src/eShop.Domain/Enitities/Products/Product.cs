@@ -17,8 +17,6 @@ namespace eShop.Domain.Enitities.Products
         public string DescriptionRu { get; set; }
         public string DescriptionEn { get; set; }
 
-        public EEntityState EEntityState { get; set; }
-
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
         public virtual ICollection<Price> Prices { get; set; }

@@ -34,8 +34,6 @@ namespace eShop.Domain.Enitities
         public EGender Gender { get; set; }
         public EUserFamilyStatus UserFamilyStatus { get; set; }
 
-        public EUserType? UserType { get; set; }
-
         public long? OrganizationId { get; set; }
         public virtual Organization Organization { get; set; }
 
