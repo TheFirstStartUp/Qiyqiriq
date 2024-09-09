@@ -2,10 +2,11 @@
 using eShop.Domain.Enitities.Organizations;
 using eShop.Domain.Enitities.Users;
 using eShop.Domain.Enums;
+using eShop.Domain.Interfaces;
 
 namespace eShop.Domain.Enitities
 {
-    public class User : AuditableEntity<int>
+    public class User : AuditableEntity<int>, ISoftDeletable
     {
         public string HashPassword { get; set; }
         public string Salt { get; set; }
@@ -44,5 +45,6 @@ namespace eShop.Domain.Enitities
         public long RoleId { get; set; } = 1;
 
         public UserRole Role { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

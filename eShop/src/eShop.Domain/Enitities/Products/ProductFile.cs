@@ -1,8 +1,9 @@
 ﻿using eShop.Domain.Base;
+using eShop.Domain.Interfaces;
 
 namespace eShop.Domain.Enitities.Products
 {
-    public class ProductFile : AuditableEntity<int>
+    public class ProductFile : AuditableEntity<int>, ISoftDeletable
     {
         public string FileName { get; set; }
         public string FileType { get; set; }           // Fayl turi (masalan, "image/jpeg", "application/pdf")
@@ -13,5 +14,6 @@ namespace eShop.Domain.Enitities.Products
 
         public int ProductId { get; set; }
         public virtual Product Product { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

@@ -1,8 +1,9 @@
 ﻿using eShop.Domain.Base;
+using eShop.Domain.Interfaces;
 
 namespace eShop.Domain.Enitities.Organizations
 {
-    public class OrganizationFile : BaseEntity<int>
+    public class OrganizationFile : BaseEntity<int>, ISoftDeletable
     {
         public string FileName { get; set; }
         public string FileType { get; set; }           // Fayl turi (masalan, "image/jpeg", "application/pdf")
@@ -13,5 +14,6 @@ namespace eShop.Domain.Enitities.Organizations
 
         public int OrganizationId { get; set; }
         public Organization Organization { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

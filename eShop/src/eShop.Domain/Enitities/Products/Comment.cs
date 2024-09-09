@@ -1,8 +1,9 @@
 ﻿using eShop.Domain.Base;
+using eShop.Domain.Interfaces;
 
 namespace eShop.Domain.Enitities.Products
 {
-    public class Comment : BaseEntity<int>
+    public class Comment : BaseEntity<int>, ISoftDeletable
     {
         public string Text { get; set; }
 
@@ -11,5 +12,6 @@ namespace eShop.Domain.Enitities.Products
 
         public int UserId { get; set; }
         public virtual User User { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

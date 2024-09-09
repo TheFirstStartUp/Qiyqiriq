@@ -1,10 +1,11 @@
 ﻿using eShop.Domain.Base;
 using eShop.Domain.Enums;
+using eShop.Domain.Interfaces;
 using eShop.Domain.Localizations;
 
 namespace eShop.Domain.Enitities.Products
 {
-    public class Product : AuditableEntity<int>, ILocalizedName, ILocalizedDescription
+    public class Product : AuditableEntity<int>, ILocalizedName, ILocalizedDescription, ISoftDeletable
     {
         //names
         public string NameUz { get; set; }
@@ -22,5 +23,6 @@ namespace eShop.Domain.Enitities.Products
         public virtual Category Category { get; set; }
         public virtual ICollection<Price> Prices { get; set; }
         public virtual ICollection<ProductFile> ProductFiles { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

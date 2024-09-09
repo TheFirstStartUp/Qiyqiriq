@@ -1,11 +1,12 @@
 ﻿using eShop.Domain.Base;
 using eShop.Domain.Enitities.Regions;
 using eShop.Domain.Enums;
+using eShop.Domain.Interfaces;
 using eShop.Domain.Localizations;
 
 namespace eShop.Domain.Enitities.Organizations
 {
-    public class Organization : AuditableEntity<int>, ILocalizedName
+    public class Organization : AuditableEntity<int>, ILocalizedName, ISoftDeletable
     {
         public string NameUz { get; set; }
         public string NameRu { get; set; }
@@ -25,5 +26,6 @@ namespace eShop.Domain.Enitities.Organizations
         public Region Region { get; set; }
         public List<long> ServiceRegionIds { get; set; }
         public EOrganizationType Type { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }
