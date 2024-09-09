@@ -5,6 +5,7 @@ using eShop.Domain.Enitities.Organizations;
 using eShop.Domain.Enitities.Products;
 using eShop.Domain.Enitities.Regions;
 using eShop.Domain.Enitities.Users;
+using eShop.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -50,6 +51,21 @@ namespace eShop.Infrastructure.Context
                 .HasMany(x => x.Permissions)
                 .WithMany(x => x.Roles)
                 .UsingEntity<UserRolePermission>();
+        }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            var softDeleteEntries = ChangeTracker
+                .Entries<ISoftDeletable>()
+                .Where(x => x.State == EntityState.Deleted);
+
+            foreach (var entry in softDeleteEntries)
+            {
+                entry.State = EntityState.Modified;
+                entry.Property(nameof(ISoftDeletable.IsDeleted)).CurrentValue = true;
+            }
+
+            return base.SaveChangesAsync(cancellationToken);
         }
     }
 }

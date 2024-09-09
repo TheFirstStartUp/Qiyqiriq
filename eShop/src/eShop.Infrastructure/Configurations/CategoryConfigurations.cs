@@ -12,6 +12,8 @@ namespace eShop.Infrastructure.Configurations
                 .WithMany(x => x.Children)
                 .HasForeignKey(x => x.ParentId)
                 .OnDelete(DeleteBehavior.SetNull);
+
+            builder.HasQueryFilter(x => !x.IsDeleted);
         }
     }
 }
