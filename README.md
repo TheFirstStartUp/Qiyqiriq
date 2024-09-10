@@ -1,0 +1,1 @@
+# Qiyqiriq dasturlar to'plami
